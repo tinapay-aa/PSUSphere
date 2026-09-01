@@ -201,7 +201,7 @@
                   <li>
                     <div class="user-box">
                       <div class="u-img">
-                        <img src="{% static 'img/profile.jpg' %}" alt="user" />
+                        <img src="{% static 'img/profile.jpg' %}" alt="user"/>
                       </div>
 
                       <div class="u-text">
@@ -312,28 +312,24 @@
                 <i class="la la-dashboard"></i>
 
                 <p>Dashboard</p>
-
-                <span class="badge badge-count"> 5 </span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="#">
+              <a href="{% url 'organization-list' %}">
                 <i class="la la-table"></i>
 
-                <p>Components</p>
-
-                <span class="badge badge-count"> 14 </span>
-              </a>
+		
+		<p>Organization</p>
+	      </a>
             </li>
 
             <li class="nav-item">
               <a href="#">
                 <i class="la la-keyboard-o"></i>
 
-                <p>Forms</p>
+		<p>Org Members</p>
 
-                <span class="badge badge-count"> 50 </span>
               </a>
             </li>
 
@@ -341,9 +337,8 @@
               <a href="#">
                 <i class="la la-th"></i>
 
-                <p>Tables</p>
+		<p>Student</p>
 
-                <span class="badge badge-count"> 6 </span>
               </a>
             </li>
 
@@ -351,9 +346,8 @@
               <a href="#">
                 <i class="la la-bell"></i>
 
-                <p>Notifications</p>
+		<p>College</p>
 
-                <span class="badge badge-success"> 3 </span>
               </a>
             </li>
 
@@ -361,27 +355,12 @@
               <a href="#">
                 <i class="la la-font"></i>
 
-                <p>Typography</p>
+                <p>Program</p>
 
                 <span class="badge badge-danger"> 25 </span>
               </a>
             </li>
 
-            <li class="nav-item">
-              <a href="#">
-                <i class="la la-fonticons"></i>
-
-                <p>Icons</p>
-              </a>
-            </li>
-
-            <li class="nav-item update-pro">
-              <button data-toggle="modal" data-target="#modalUpdate">
-                <i class="la la-hand-pointer-o"></i>
-
-                <p>Update To Pro</p>
-              </button>
-            </li>
           </ul>
         </div>
       </div>

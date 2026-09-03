@@ -6,7 +6,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <div class="card-title">List of Organizations</div>
+            <div class="card-title">List of Colleges</div>
             <div class="card-category">Page Subtitle</div>
           </div>
 
@@ -36,10 +36,10 @@
             <div class="col-md-6">
               <div class="pull-right">
                 <a
-                  href="{% url 'organization-add' %}"
+                  href="{% url 'college-add' %}"
                   class="btn btn-success btn-rounded"
                 >
-                  Add Organization
+                  Add College
                 </a>
               </div>
             </div>
@@ -50,8 +50,6 @@
               <thead>
                 <tr>
                   <th scope="col">Name</th>
-                  <th scope="col">College</th>
-                  <th scope="col">Description</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -59,13 +57,11 @@
               <tbody>
                 {% for object in object_list %}
                 <tr>
-                  <td>{{ object.name }}</td>
-                  <td>{{ object.college }}</td>
-                  <td>{{ object.description }}</td>
+                  <td>{{ object.college_name }}</td>
                   <td>
-                    <a href="{% url 'organization-update' object.id %}">Edit</a>
+                    <a href="{% url 'college-update' object.id %}">Edit</a>
                     <a
-                      href="{% url 'organization-delete' object.id %}"
+                      href="{% url 'college-delete' object.id %}"
                       class="text-danger"
                       >Delete</a
                     >

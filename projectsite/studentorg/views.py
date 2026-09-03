@@ -95,27 +95,27 @@ class StudentDeleteView(DeleteView):
 class CollegeList(ListView):
     model = College
     context_object_name = 'college'
-    template_name = 'college_list.html'
+    template_name = 'College_Templates/college_list.html'
     paginate_by = 5
 
 
 class CollegeCreateView(CreateView):
     model = College
     fields = "__all__"
-    template_name = 'college_form.html'
+    template_name = 'College_Templates/college_form.html'
     success_url = reverse_lazy('college-list')
 
 
 class CollegeUpdateView(UpdateView):
     model = College
     fields = "__all__"
-    template_name = 'college_form.html'
+    template_name = 'College_Templates/college_form.html'
     success_url = reverse_lazy('college-list')
 
 
 class CollegeDeleteView(DeleteView):
     model = College
-    template_name = 'college_del.html'
+    template_name = 'College_Templates/college_del.html'
     success_url = reverse_lazy('college-list')
 
 # Program views
@@ -125,20 +125,17 @@ class ProgramList(ListView):
     template_name = 'program_list.html'
     paginate_by = 5
 
-
 class ProgramCreateView(CreateView):
     model = Program
     fields = "__all__"
     template_name = 'program_form.html'
     success_url = reverse_lazy('program-list')
 
-
 class ProgramUpdateView(UpdateView):
     model = Program
     fields = "__all__"
     template_name = 'program_form.html'
     success_url = reverse_lazy('program-list')
-
 
 class ProgramDeleteView(DeleteView):
     model = Program

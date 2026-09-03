@@ -6,7 +6,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <div class="card-title">List of Organizations</div>
+            <div class="card-title">List of Programs</div>
             <div class="card-category">Page Subtitle</div>
           </div>
 
@@ -36,10 +36,10 @@
             <div class="col-md-6">
               <div class="pull-right">
                 <a
-                  href="{% url 'organization-add' %}"
+                  href="{% url 'program-add' %}"
                   class="btn btn-success btn-rounded"
                 >
-                  Add Organization
+                  Add Program
                 </a>
               </div>
             </div>
@@ -49,9 +49,8 @@
             <table class="table table-striped mt-3">
               <thead>
                 <tr>
-                  <th scope="col">Name</th>
+                  <th scope="col">Program Name</th>
                   <th scope="col">College</th>
-                  <th scope="col">Description</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -59,13 +58,12 @@
               <tbody>
                 {% for object in object_list %}
                 <tr>
-                  <td>{{ object.name }}</td>
-                  <td>{{ object.college }}</td>
-                  <td>{{ object.description }}</td>
+                  <td>{{ object.prog_name }}</td>
+                  <td>{{ object.college.college_name }}</td>
                   <td>
-                    <a href="{% url 'organization-update' object.id %}">Edit</a>
+                    <a href="{% url 'program-update' object.id %}">Edit</a>
                     <a
-                      href="{% url 'organization-delete' object.id %}"
+                      href="{% url 'program-delete' object.id %}"
                       class="text-danger"
                       >Delete</a
                     >

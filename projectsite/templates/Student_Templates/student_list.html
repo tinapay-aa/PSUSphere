@@ -16,13 +16,16 @@
             <div class="col-md-6">
               <form
                 class="navbar-left navbar-form nav-search mr-md-3"
-                action=""
+                action="{% url 'student-list' %}"
+                method="get"
               >
                 <div class="input-group">
                   <input
                     type="text"
                     placeholder="Search ..."
                     class="form-control"
+                    name="q"
+                    value="{{ request.GET.q }}"
                   />
                   <div class="input-group-append">
                     <span class="input-group-text">
@@ -59,7 +62,10 @@
                 {% for object in object_list %}
                 <tr>
                   <td>{{ object.student_id }}</td>
-                  <td>{{ object.lastname }}, {{ object.firstname }} {{ object.middlename }}</td>
+                  <td>
+                    {{ object.lastname }}, {{ object.firstname }} {{
+                    object.middlename }}
+                  </td>
                   <td>{{ object.program }}</td>
                   <td>
                     <a href="{% url 'student-update' object.id %}">Edit</a>

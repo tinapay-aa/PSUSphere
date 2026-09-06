@@ -16,13 +16,16 @@
             <div class="col-md-6">
               <form
                 class="navbar-left navbar-form nav-search mr-md-3"
-                action=""
+                action="{% url 'orgmember-list' %}"
+                method="get"
               >
                 <div class="input-group">
                   <input
                     type="text"
                     placeholder="Search ..."
                     class="form-control"
+                    name="q"
+                    value="{{ request.GET.q }}"
                   />
                   <div class="input-group-append">
                     <span class="input-group-text">
@@ -38,9 +41,74 @@
                 <a
                   href="{% url 'orgmember-add' %}"
                   class="btn btn-success btn-rounded"
-                >Add Member</a>
+                  >Add Member</a
+                >
               </div>
             </div>
+          </div>
+
+          <div class="col-md-12">
+            <form method="get" class="row g-2 align-items-center">
+              <input type="hidden" name="q" value="{{ request.GET.q }}" />
+              <div class="col-auto">
+                <label for="member-sort" class="col-form-label">Sort by</label>
+              </div>
+              <div class="col-auto">
+                <select
+                  class="form-control form-control-sm"
+                  id="member-sort"
+                  name="sort_by"
+                >
+                  <option
+                    value="student__lastname"
+                    {%
+                    if
+                    request.GET.sort_by=""
+                    ="student__lastname"
+                    or
+                    not
+                    request.GET.sort_by
+                    %}selected{%
+                    endif
+                    %}
+                  >
+                    Student Name
+                  </option>
+                  <option
+                    value="student__firstname"
+                    {%
+                    if
+                    request.GET.sort_by=""
+                    ="student__firstname"
+                    %}selected{%
+                    endif
+                    %}
+                  >
+                    First Name
+                  </option>
+                  <option
+                    value="date_joined"
+                    {%
+                    if
+                    request.GET.sort_by=""
+                    ="date_joined"
+                    %}selected{%
+                    endif
+                    %}
+                  >
+                    Date Joined
+                  </option>
+                </select>
+              </div>
+              <div class="col-auto">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-sm btn-rounded"
+                >
+                  Sort
+                </button>
+              </div>
+            </form>
           </div>
 
           <div class="card-body">
@@ -56,12 +124,13 @@
               <tbody>
                 {% for object in object_list %}
                 <tr>
-                  <td>{{ object.student.firstname }} {{object.student.lastname}}</td>
+                  <td>
+                    {{ object.student.firstname }} {{object.student.lastname}}
+                  </td>
                   <td>{{ object.organization.name }}</td>
                   <td>{{ object.date_joined }}</td>
                   <td>
-                    <a href="{% url 'orgmember-update' object.id %}"
-                    >Edit</a>
+                    <a href="{% url 'orgmember-update' object.id %}">Edit</a>
                     <a
                       href="{% url 'orgmember-delete' object.id %}"
                       class="text-danger"

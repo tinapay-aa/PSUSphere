@@ -14,7 +14,7 @@ from django.db.models import Q
 from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-class HomePageView(LoginRequiredMixin, ListView):
+class HomePageView(ListView):
     model = Organization
     context_object_name = 'home'
     template_name = "home.html"
